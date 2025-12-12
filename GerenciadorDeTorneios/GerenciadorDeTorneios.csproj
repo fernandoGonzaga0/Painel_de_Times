@@ -6,10 +6,22 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Resources\LogoBrasileirao.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\LogoBrasileirao.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\LogoBrasileirao.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.3" />
+    <Resource Include="Resources\LogoBrasileirao.ico">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
 	  <None Update="App.config">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>

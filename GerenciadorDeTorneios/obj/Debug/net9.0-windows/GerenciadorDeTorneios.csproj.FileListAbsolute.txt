@@ -64,3 +64,5 @@ C:\Users\Nectar\Documents\Cursos\GerenciadorDeTorneios\GerenciadorDeTorneios\obj
 C:\Users\Nectar\Documents\Cursos\GerenciadorDeTorneios\GerenciadorDeTorneios\obj\Debug\net9.0-windows\ref\GerenciadorDeTorneios.dll
 C:\Users\Nectar\Documents\Cursos\GerenciadorDeTorneios\GerenciadorDeTorneios\obj\Debug\net9.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\Nectar\Documents\Cursos\GerenciadorDeTorneios\GerenciadorDeTorneios\bin\Debug\net9.0-windows\App.config
+C:\Users\Nectar\Documents\Cursos\GerenciadorDeTorneios\GerenciadorDeTorneios\obj\Debug\net9.0-windows\GerenciadorDeTorneios.sourcelink.json
+C:\Users\Nectar\Documents\Cursos\GerenciadorDeTorneios\GerenciadorDeTorneios\obj\Debug\net9.0-windows\GerenciadorDeTorneios_Content.g.cs

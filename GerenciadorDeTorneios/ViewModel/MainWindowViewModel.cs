@@ -98,7 +98,10 @@ namespace GerenciadorDeTorneios.ViewModel
             // SalvarTimesNoBanco();
             // SalvarJogadoresNoBanco();
 
+            
+
             CarregarTimes(); // os times serão carregados automaticamente após a execução desse método
+
         }
 
         // classe para salvar times no banco de dados * método comentado pois já salvamos os objetos no banco de dados
@@ -137,9 +140,10 @@ namespace GerenciadorDeTorneios.ViewModel
 
             foreach (var t in _timeRepo.GetAll())
             {
+                // carregando os jogadores de cada time
+                t.Jogadores = _jogadoresRepo.GetByTimeId(t.Id);
                 Times.Add(t);
             }
-            
         }
         
         // classe para carregar jogadores dos times
@@ -149,7 +153,7 @@ namespace GerenciadorDeTorneios.ViewModel
 
             JogadoresDoTime.Clear();
 
-            foreach (var j in _jogadoresRepo.GetAll())
+            foreach (var j in _jogadoresRepo.GetByTimeId(TimeSelecionado.Id))
             {
                 JogadoresDoTime.Add(j);
             }

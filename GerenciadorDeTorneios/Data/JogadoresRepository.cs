@@ -69,5 +69,39 @@ namespace GerenciadorDeTorneios.Data
                 cmd.ExecuteNonQuery();
             }
         }
+
+        // método que retorna jogadores por time, visto que queremos retornar dentro da MainWindow os jogadores por time
+        // seria o equivalente a fazer um SELECT * FROM Jogadores WHERE TimeId = @TimeId
+        public List<Jogadores> GetByTimeId(int timeId)
+        {
+            var lista = new List<Jogadores>();
+
+            using (var conn = new SqlConnection(_connString))
+            {
+                conn.Open();
+
+                var cmd = new SqlCommand(
+                    "SELECT Id, Nome, Posicao, Numero, TimeId FROM Jogadores WHERE TimeId = @TimeId", conn
+                    );
+
+                cmd.Parameters.AddWithValue("@TimeId", timeId);
+
+                var reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    lista.Add(new Jogadores()
+                    {
+                        Id = reader.GetInt32(0),
+                        Nome = reader.GetString(1),
+                        Posicao = reader.GetString(2),
+                        Numero = reader.GetInt32(3),
+                        TimeId = reader.GetInt32(4)
+                    });
+                }
+            }
+            return lista;
+
+        }
     }
 }

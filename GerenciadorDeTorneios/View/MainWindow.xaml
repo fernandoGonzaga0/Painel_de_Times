@@ -7,8 +7,14 @@
         xmlns:vm="clr-namespace:GerenciadorDeTorneios.ViewModel"
         xmlns:models="clr-namespace:GerenciadorDeTorneios.Models"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="Painel de Times" Height="660" Width="800"
         d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel}">
+    
+    <!--
+        
+    É necessário configurar nas propriedades do projeto Application -> Win 32 Resources -> Icon 
+    
+    -->
 
     <Window.Resources>
 
@@ -18,40 +24,131 @@
             <models:Time Nome="São Paulo"/>
             <models:Time Nome="Santos"/>
         </x:Array>
-
+        
     </Window.Resources>
 
-    <!-- lista de times -->
-    <ListBox ItemsSource="{Binding Times}"
-             d:ItemsSource="{StaticResource FakeTimes}"
-             ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+    <Grid>
 
-        <!--alterando a formatação de linha por coluna-->
-        <ListBox.ItemsPanel>
-            <ItemsPanelTemplate>
-                <WrapPanel Orientation="Horizontal"
-               ItemHeight="Auto"
-               ItemWidth="220"/>
-            </ItemsPanelTemplate>
-        </ListBox.ItemsPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <ListBox.ItemTemplate>
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#000000" Offset="0"/>
+                    <GradientStop Color="#222831" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <TextBlock   
+                   Text="Times Brasileiros" 
+                   FontSize="25" FontFamily="Segoe Print"
+                   HorizontalAlignment="Center"
+                   Foreground="#EEEEEE"/>
+        </Grid>
+        
+        <!-- lista de times -->
+        <ListBox    Grid.Row="1"
+                    ItemsSource="{Binding Times}"
+                    d:ItemsSource="{StaticResource FakeTimes}"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    BorderThickness="0">
 
-            <DataTemplate>
+            <ListBox.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#222831" Offset="0"/>
+                    <GradientStop Color="#3D3B40" Offset="1"/>
+                </LinearGradientBrush>
+            </ListBox.Background>
 
-                <!-- item para cada time -->
-                <StackPanel Margin="5" Background="#EEE" Orientation="Horizontal">
+            <!--alterando a formatação de linha por coluna-->
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel  Orientation="Horizontal"
+                                ItemHeight="Auto"
+                                HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
 
-                    <!--Nome do time -->
-                    <TextBlock Text="{Binding Nome}" FontSize="16"/>
-                    <TextBlock Text="{Binding Id}" FontSize="10" VerticalAlignment="Center"/>
+            <ListBox.ItemTemplate>
 
-                </StackPanel>
+                <DataTemplate>
 
-            </DataTemplate>
+                    <!-- item para cada time -->
 
-        </ListBox.ItemTemplate>
+                    <Border Padding="5" Background="Azure" CornerRadius="20" Height="270">
+                        <Grid>
 
-    </ListBox>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--Nome do time -->
+                            <TextBlock Grid.Row="0" 
+                                       Text="{Binding Nome}" 
+                                       FontSize="16" FontFamily="Constantia"
+                                       Foreground="#000000"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Row="1" Text="Elenco"/>
+
+                            <Grid Grid.Row="2">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <!--Nome dos jogadores-->
+                                <ItemsControl Grid.Row="2" ItemsSource="{Binding Jogadores}">
+
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel Orientation="Horizontal"/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" Margin="2">
+
+                                                <!-- Nome do jogador -->
+                                                <TextBlock 
+                                                   Text="{Binding Nome}"
+                                                   Foreground="#000000"
+                                                   FontSize="12"/>
+
+                                                <!-- Posição -->
+                                                <TextBlock 
+                                                   Text="{Binding Posicao}"
+                                                   FontSize="12"
+                                                   Foreground="Gray"
+                                                    MinWidth="120"
+                                                   Margin="10,0,0,0"/>
+                                                
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+
+                            </Grid>
+
+                        </Grid>
+                    </Border>
+
+                </DataTemplate>
+
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+
+    </Grid>
 
 </Window>

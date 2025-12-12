@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GerenciadorDeTorneios")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73fe547977734c88f2c95ce800c201d19e29dc6b")]
 [assembly: System.Reflection.AssemblyProductAttribute("GerenciadorDeTorneios")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GerenciadorDeTorneios")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

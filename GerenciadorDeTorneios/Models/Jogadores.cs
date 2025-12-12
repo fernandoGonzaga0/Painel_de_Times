@@ -7,5 +7,6 @@
         public string? Posicao { get; set; }
         public int Numero { get; set; }
         public int TimeId { get; set; }
+
     }
 }
