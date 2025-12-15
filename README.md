@@ -42,5 +42,5 @@ GerenciadorDeTorneios/
 
 <p>No banco de dados existem apenas duas tabelas: Time e Jogadores, relacionadas em 1:N (um time pode ter vários jogadores). Essas tabelas são conectadas por uma chave estrangeira, onde Jogadores.TimeId referencia Time.Id:</p>
 
-
+<img src="GerenciadorDeTorneios/Resources/SQL_printscreen.png" alt="SQL_printscreen" width="800" heigth="600">
   
