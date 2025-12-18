@@ -103,7 +103,7 @@ GerenciadorDeTorneios/
 
 ## Licença
 
-<p>Distribuído sob licença MIT. Veja LICENSE para mais informações.</p>   
+<p>Distribuído sob licença MIT.</p>   
 
 ## Autor
 
