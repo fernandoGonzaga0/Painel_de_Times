@@ -28,6 +28,7 @@
   - Visual Studio
   - .NET 9.0
   - C# 12.0
+  - WPF
   - SQL Server Management (criei um banco de dados local para o projeto)
 
 ## Arquitetura do Projeto
